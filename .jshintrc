@@ -1,0 +1,1 @@
+/*jshint node: true, browser: true,jquery: true, bitwise: true,  eqeqeq: true,  immed: true, newCap: true,  quotmark: true, unused: true, trailing: true, laxcomma: true, strict:false */ /*global PLY, define, casper, require, Backbone, before, describe, it, after */

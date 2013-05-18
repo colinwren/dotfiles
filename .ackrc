@@ -1,0 +1,7 @@
+--ignore-dir=node_modules
+--ignore-dir=dist
+--ignore-dir=components
+--type-add
+html=.haml
+--type-add
+css=.sass,.scss
