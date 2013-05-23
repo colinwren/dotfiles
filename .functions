@@ -1,24 +1,7 @@
-# Simple calculator
-function calc() {
-	local result=""
-	result="$(printf "scale=10;$*\n" | bc --mathlib | tr -d '\\\n')"
-	#                       └─ default (when `--mathlib` is used) is 20
-	#
-	if [[ "$result" == *.* ]]; then
-		# improve the output for decimal numbers
-		printf "$result" |
-		sed -e 's/^\./0./'        `# add "0" for cases like ".5"` \
-		    -e 's/^-\./-0./'      `# add "0" for cases like "-.5"`\
-		    -e 's/0*$//;s/\.$//'   # remove trailing zeros
-	else
-		printf "$result"
-	fi
-	printf "\n"
-}
-
 # Create a new directory and enter it
-function mkd() {
-	mkdir -p "$@" && cd "$@"
+md () {
+  mkdir "$1"
+    cd "$1"
 }
 
 # Create a new directory and enter it
@@ -35,6 +18,8 @@ function gci() {
 function rc() {
   rails new "$@" -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb
 }
+
+## Mathias bash stuff
 
 # Determine size of a file or total size of a directory
 function fs() {
@@ -177,16 +162,4 @@ function unquarantine() {
 	for attribute in com.apple.metadata:kMDItemDownloadedDate com.apple.metadata:kMDItemWhereFroms com.apple.quarantine; do
 		xattr -r -d "$attribute" "$@"
 	done
-}
-
-# make new hint test
-function mhtest() {
-	bin/SASSFriend hint test/dirty.css --$1 | tee test/hint/$1.css
-}
-
-# make new groom test
-function mhtest() {
-	bin/SASSFriend groom test/dirty.css --$1 | tee test/groom/$1.css
-  rm test/dirty.css
-  cp test/dirtyCopy.css test/dirty.css
 }

@@ -7,25 +7,19 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Projects/dotfiles"
-alias ds="source ~/Projects/dotfiles/bootstrap.sh -f"
+alias d="cd ~/Projects/dot"
+alias ds="source ~/Projects/dot/bootstrap.sh -f"
 alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias s="cd ~/Projects/sails"
-md () {
-  mkdir "$1"
-    cd "$1"
-}
 alias kd="find . -name '*.DS_Store' -type f -delete"
 alias xx="rm -rv *"
 alias h="history"
 alias f="exit"
-alias j="jobs"
 alias v="vim"
 alias j="vim -c NERDTree"
-alias ve="vim ~/Projects/dotfiles/.vimrc"
-alias vb="cd ~/Projects/dotfiles/.vim/bundle"
+alias ve="vim ~/Projects/dot/.vimrc"
+alias vb="cd ~/Projects/dot/.vim/bundle"
 alias o="open"
 alias oo="open ."
 alias no="growlnotify --appIcon Alfred Done! -m ''"
@@ -66,6 +60,9 @@ alias cms="cm1 && cm2 && cm3"
 alias pol="cms && cd polygon && make && grunt start"
 alias cmo="open ~/Projects/polygon && open /Applications/XAMPP/htdocs/polygon"
 alias pl="cd /Applications/XAMPP/htdocs/polygon"
+
+# Mathias bash aliases
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
