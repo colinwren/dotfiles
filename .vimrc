@@ -159,6 +159,9 @@ map <leader>d :GitGutterToggle<cr>:set cul<cr>:set numberwidth=1<cr>:highlight L
 " Open file in macvim
 map <leader>gv :! mvim %<cr>
 
+" Run file with node
+map <leader>n :! node %<cr>
+
 map <leader>t :set expandtab!<cr>:set tabstop=4<cr>:set shiftwidth=4<cr>
 map <leader>s :set expandtab<cr>:set tabstop=2<cr>:set shiftwidth=2<cr>
 
@@ -328,6 +331,7 @@ autocmd VimEnter * :if argc() is 0 | :CtrlP<CR> | endif
 au BufEnter * inoremap <expr><s-TAB> pumvisible() ? "\<C-n>" : "<s-TAB>"
 highlight NonText ctermfg=blue
 au BufNewFile,BufRead *.ejs set filetype=html
+au FocusLost * :silent! wall
 
 function! NumberToggle()
   if(&relativenumber == 1)

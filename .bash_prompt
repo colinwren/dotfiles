@@ -44,7 +44,7 @@ export BOLD
 export RESET
 
 function parse_git_dirty() {
-	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
+	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo -e "\033[32m ±\033[m"
 }
 
 function parse_git_branch() {
@@ -57,7 +57,8 @@ function parse_node_version() {
 
 	node --version 2> /dev/null | sed -e 's/v/ ⬢ /'
 }
+# λλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλ
 #[$GREEN\]\$(parse_node_version)\
-export PS1="\[${BOLD}${MAGENTA}\]\[$BLUE\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\] λ \[$RESET\]"
+export PS1="\[${BOLD}${MAGENTA}\]\[$BLUE\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\] 🍕  \[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
