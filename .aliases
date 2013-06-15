@@ -46,6 +46,8 @@ alias ni='npm install --save-dev'
 alias na='npm install'
 alias ng='npm install -g'
 
+alias ser='grunt server'
+
 #rails stuff
 alias rdb='rake db:migrate && rake db:test:prepare'
 
