@@ -57,8 +57,8 @@ function parse_node_version() {
 
 	node --version 2> /dev/null | sed -e 's/v/ ⬢ /'
 }
-# λλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλ
+# λλλλλλλλλλλλ🍕🍕🍕🍕🍕λλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλλ
 #[$GREEN\]\$(parse_node_version)\
-export PS1="\[${BOLD}${MAGENTA}\]\[$BLUE\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\] 🍕  \[$RESET\]"
+export PS1="\[${BOLD}${MAGENTA}\]\[$BLUE\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\] λ \[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
