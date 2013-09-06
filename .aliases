@@ -26,6 +26,7 @@ alias no="growlnotify --appIcon Alfred Done! -m ''"
 alias gmet="open /Users/colinwren/Pictures/xsZ1Rmm.gif"
 alias fan="ps -A | grep node"
 alias kan="killall node"
+alias "ack"="ack-grep"
 
 #git stuff
 alias g="git"
@@ -53,15 +54,6 @@ alias rdb='rake db:migrate && rake db:test:prepare'
 
 #hub
 alias git=hub
-
-# Polygon Dev
-alias cm1="sudo rm -rv /Applications/XAMPP/htdocs/polygon"
-alias cm2="sudo git clone https://github.com/ChrisWren/polygon.git /Applications/XAMPP/htdocs/polygon"
-alias cm3="sudo chmod -R ugo+rwx /Applications/XAMPP/htdocs/polygon"
-alias cms="cm1 && cm2 && cm3"
-alias pol="cms && cd polygon && make && grunt start"
-alias cmo="open ~/Projects/polygon && open /Applications/XAMPP/htdocs/polygon"
-alias pl="cd /Applications/XAMPP/htdocs/polygon"
 
 # Mathias bash aliases
 
