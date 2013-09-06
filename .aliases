@@ -7,8 +7,8 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Projects/dot"
-alias ds="source ~/Projects/dot/bootstrap.sh -f"
+alias d="cd ~/Projects/dotfiles"
+alias ds="source ~/Projects/dotfiles/bootstrap.sh -f"
 alias dl="cd ~/Downloads"
 alias p="cd ~/Projects"
 alias s="cd ~/Projects/sails"

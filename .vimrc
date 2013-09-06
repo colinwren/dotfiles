@@ -308,6 +308,8 @@ let delimitMate_expand_cr = 1
 
 " }}}
 
+" Airline config
+let g:airline_powerline_fonts = 1
 " indent guide options
 let indent_guides_auto_colors = 0
 let g:indent_guides_enable_on_vim_startup = 1
@@ -325,6 +327,7 @@ let g:neocomplcache_min_syntax_length = 3
 let g:user_zen_expandabbr_key='<esc><Tab>'
 " }}}
 " Onload {{{
+autocmd VimEnter * :set visualbell!
 autocmd VimEnter * :IndentGuidesEnable
 autocmd VimEnter * :if argc() is 0 | :CtrlP<CR> | endif
 
@@ -342,5 +345,4 @@ function! NumberToggle()
 endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
-source /Users/colinwren/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/plugin/powerline.vim
 " }}}
