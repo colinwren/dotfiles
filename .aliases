@@ -41,9 +41,17 @@ alias gca='git commit -a'
 alias gs='git status -sb'
 alias gy='git pull --rebase upstream master'
 
+#tmux stuff
+alias tl='tmux list-sessions'
+alias ta='tmux attach -t'
+alias td='tmux detach'
+alias tk='tmux kill-session -t'
+alias tn='tmux new -s'
+alias tr='tmux rename-session -t'
 
 #npm stuff
-alias ni='npm install --save-dev'
+alias ni='npm install --save'
+alias nd='npm install --save-dev'
 alias na='npm install'
 alias ng='npm install -g'
 

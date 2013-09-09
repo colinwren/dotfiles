@@ -285,7 +285,7 @@ nnoremap <S-Tab> <<
 " Set syntax highlighting options.
 set t_Co=256
 colorscheme jellybeans
-hi CursorLine term=bold cterm=bold ctermbg=232
+hi CursorLine ctermbg=232
 highlight ColorColumn ctermbg=232
 hi IndentGuidesOdd ctermbg=232
 hi IndentGuidesEven ctermbg=234
@@ -324,12 +324,13 @@ let g:neocomplcache_enable_underbar_completion = 1
 " Sets minimum char length of syntax keyword.
 let g:neocomplcache_min_syntax_length = 3
 " zen coding option
-let g:user_zen_expandabbr_key='<esc><Tab>'
+let g:user_emmet_expandabbr_key='<esc><Tab>'
 " }}}
 " Onload {{{
 autocmd VimEnter * :set visualbell!
 autocmd VimEnter * :IndentGuidesEnable
-autocmd VimEnter * :if argc() is 0 | :CtrlP<CR> | endif
+" dont know why this is broken
+"autocmd VimEnter * :if argc() is 0 | :CtrlP<CR> | endif
 
 au BufEnter * inoremap <expr><s-TAB> pumvisible() ? "\<C-n>" : "<s-TAB>"
 highlight NonText ctermfg=blue
