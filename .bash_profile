@@ -39,3 +39,6 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # Load rvm
 source ~/.rvm/scripts/rvm
+
+# vim mode
+set -o vi
