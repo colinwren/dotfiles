@@ -2,7 +2,6 @@
 "  Base options taken from:
 "  Steve Losh https://github.com/sjl/dotfiles/blob/master/vim/vimrc
 "  Paul Irish https://github.com/paulirish/dotfiles/blob/master/.vimrc
-"  Make vim more useful
 
 " Preamble {{{
 
@@ -36,7 +35,7 @@ set undodir=~/.vim/undo
   vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
   nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 
-" from paul irish
+" mostly from paul irish
 " Set some junk
 set autoindent " Copy indent from last line when starting new line.
 set backspace=indent,eol,start
@@ -159,8 +158,6 @@ map <leader>d :GitGutterToggle<cr>:set cul<cr>:set numberwidth=1<cr>:highlight L
 " Open file in macvim
 map <leader>gv :! mvim %<cr>
 
-" Run file with node
-map <leader>n :! node %<cr>
 
 map <leader>t :set expandtab!<cr>:set tabstop=4<cr>:set shiftwidth=4<cr>
 map <leader>s :set expandtab<cr>:set tabstop=2<cr>:set shiftwidth=2<cr>
@@ -345,5 +342,9 @@ function! NumberToggle()
   endif
 endfunc
 
-nnoremap <C-n> :call NumberToggle()<cr>
+" Run file with node
+map <leader>n :call NumberToggle()<cr>
+
+" This prevents weird background stuff with vim and tmux
+set t_ut=
 " }}}

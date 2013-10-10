@@ -11,22 +11,18 @@ alias d="cd ~/Projects/dotfiles"
 alias ds="source ~/Projects/dotfiles/bootstrap.sh -f"
 alias dl="cd ~/Downloads"
 alias p="cd ~/Projects"
-alias s="cd ~/Projects/sails"
 alias kd="find . -name '*.DS_Store' -type f -delete"
 alias xx="rm -rv *"
 alias h="history"
 alias f="exit"
 alias v="vim"
 alias j="vim -c NERDTree"
-alias ve="vim ~/Projects/dot/.vimrc"
-alias vb="cd ~/Projects/dot/.vim/bundle"
+alias ve="vim ~/Projects/dotfiles/.vimrc"
+alias vb="cd ~/Projects/dotfiles/.vim/bundle"
 alias o="open"
 alias oo="open ."
-alias no="growlnotify --appIcon Alfred Done! -m ''"
-alias gmet="open /Users/colinwren/Pictures/xsZ1Rmm.gif"
 alias fan="ps -A | grep node"
 alias kan="killall node"
-alias "ack"="ack-grep"
 
 #git stuff
 alias g="git"
@@ -35,6 +31,7 @@ alias gl="git gl"
 alias gm="git mv"
 alias gf="git config remote.origin.push HEAD"
 alias gc='git commit'
+alias gca='git commit --amend'
 alias gb='git branch'
 alias gco='git checkout'
 alias gca='git commit -a'
@@ -47,6 +44,7 @@ alias ta='tmux attach -t'
 alias td='tmux detach'
 alias tk='tmux kill-session -t'
 alias tn='tmux new -s'
+alias tc='tmux new -s'
 alias tr='tmux rename-session -t'
 
 #npm stuff
@@ -57,12 +55,10 @@ alias ng='npm install -g'
 
 alias ser='grunt server'
 
-#rails stuff
-alias rdb='rake db:migrate && rake db:test:prepare'
-
 #hub
 alias git=hub
 
+alias nn='node --harmony-generators'
 # Mathias bash aliases
 
 # Detect which `ls` flavor is in use
@@ -170,8 +166,3 @@ alias map="xargs -n1"
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
-
-# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume 7'"
-alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
