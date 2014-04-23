@@ -1,3 +1,6 @@
+# QUAD STUFF
+alias qp="cd ~/projects/sql_land && heroku pg:psql --app quad2-prod-addons && cd -"
+alias qs="cd ~/projects/sql_land && heroku pg:psql HEROKU_POSTGRESQL_CRIMSON --app quad2-prod-addons && cd -"
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
@@ -54,6 +57,9 @@ alias na='npm install'
 alias ng='npm install -g'
 
 alias ser='grunt server'
+
+# Create gist and copy url to command line
+alias gis="gist -p -o -c"
 
 #hub
 alias git=hub

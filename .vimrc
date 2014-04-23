@@ -97,6 +97,9 @@ set wildmode=list:longest " Complete only until point of ambiguity.
 set winminheight=0 "Allow splits to be reduced to a single line.
 set wrapscan " Searches wrap around end of file
 
+set exrc    " enable per-directory .vimrc files
+set secure  " disable unsafe commands in local .vimrc files"
+
 " Textwrapping {{{
 set wrap
 set textwidth=79
@@ -231,10 +234,10 @@ nnoremap <leader>rp :RainbowParenthesesToggleAll<CR>
 " Assorted keymappings {{{
 
 " Remap :W to :w
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+command! WQ wq
+command! Wq wq
+command! W w
+command! Q q
 
 map <esc>j <C-W>j
 map <esc>k <C-W>k
@@ -310,6 +313,9 @@ let g:airline_powerline_fonts = 1
 " indent guide options
 let indent_guides_auto_colors = 0
 let g:indent_guides_enable_on_vim_startup = 1
+
+" Ack.vim config to use ag
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " nocomple chache options
 let g:neocomplcache_enable_at_startup = 1
