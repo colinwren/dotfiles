@@ -37,11 +37,10 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
 # Load rvm
-source ~/.rvm/scripts/rvm
-
-# Load rvm
 source ~/.nvm/nvm.sh
 nvm use 0.10
 
 # vim mode
 set -o vi
+
+eval "$(rbenv init -)"
