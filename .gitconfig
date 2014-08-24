@@ -86,3 +86,5 @@
 	helper = cache --timeout=99600
 [help]
 	autocorrect = 1
+[rerere]
+	enabled = true
