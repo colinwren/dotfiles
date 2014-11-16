@@ -43,4 +43,5 @@ nvm use 0.10
 # vim mode
 set -o vi
 
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

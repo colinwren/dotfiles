@@ -5,11 +5,46 @@
 
 " Preamble {{{
 
-filetype off
-execute pathogen#infect()
+set nocompatible
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+call neobundle#begin(expand('~/Projects/dotfiles/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'bkad/CamelCaseMotion'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'juvenn/mustache.vim'
+NeoBundle 'Shougo/neocomplcache.vim'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'Lokaltog/vim-easymotion'
+
+call neobundle#end()
+
 syntax on
 filetype plugin indent on
-set nocompatible
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 " }}}
 
@@ -227,9 +262,6 @@ map <leader>nt :NERDTree<cr>
 " gundo option
 nnoremap <leader>gu :GundoToggle<CR>
 
-" rainbow
-nnoremap <leader>rp :RainbowParenthesesToggleAll<CR>
-
 " }}}
 " Assorted keymappings {{{
 
@@ -327,7 +359,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 " Sets minimum char length of syntax keyword.
 let g:neocomplcache_min_syntax_length = 3
 " zen coding option
-let g:user_emmet_expandabbr_key='<esc><Tab>'
+let g:user_emmet_expandabbr_key='<C-Y>'
 " }}}
 " Onload {{{
 autocmd VimEnter * :set visualbell!
