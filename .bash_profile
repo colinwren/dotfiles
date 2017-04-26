@@ -38,10 +38,10 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # Load rvm
 source ~/.nvm/nvm.sh
-nvm use 0.10
 
 # vim mode
 set -o vi
 
+export PATH="$PATH:`yarn global bin`"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

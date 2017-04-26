@@ -17,7 +17,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'bkad/CamelCaseMotion'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'morhetz/gruvbox'
+NeoBundle 'Glench/Vim-Jinja2-Syntax'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'juvenn/mustache.vim'
 NeoBundle 'Shougo/neocomplcache.vim'
@@ -35,7 +37,19 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'tpope/vim-vinegar'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'rking/ag.vim'
+NeoBundle 'slim-template/vim-slim'
+NeoBundle 'gcmt/wildfire.vim'
+
+" Testing out
+NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'tpope/vim-endwise'
 
 call neobundle#end()
 
@@ -218,6 +232,9 @@ nnoremap <Space>t :sh<cr>
 nnoremap <Space>a ^
 nnoremap <Space>f $
 
+nnoremap <Space>9 :vertical resize -5<cr>
+nnoremap <Space>0 :vertical resize +5<cr>
+
 " folding
 nnoremap <Space>g za
 
@@ -235,6 +252,7 @@ nnoremap <Space>q :q<CR>
 " rails mappings
 nnoremap <space>u :GitGutterNextHunk<cr>
 nnoremap <space>i :GitGutterPrevHunk<cr>
+nmap <space>p <Plug>GitGutterPreviewHunk
 
 nnoremap <Space>q :q<CR>
 "change surrounding quote
@@ -317,19 +335,20 @@ nnoremap <S-Tab> <<
 " Set syntax highlighting options.
 set t_Co=256
 colorscheme jellybeans
-hi CursorLine ctermbg=232
+hi CursorLine ctermbg=235
 highlight ColorColumn ctermbg=232
-hi IndentGuidesOdd ctermbg=232
-hi IndentGuidesEven ctermbg=234
+hi IndentGuidesOdd ctermbg=236
+hi IndentGuidesEven ctermbg=237
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=234
 highlight SignColumn ctermbg=234
-highlight Normal ctermbg=233
+highlight Normal ctermbg=238
 set modifiable
 set noswapfile
 " }}}
 " Plugin config {{{
 " NerdTree {{{
 "
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let NERDTreeShowBookmarks=1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
@@ -342,6 +361,8 @@ let delimitMate_expand_cr = 1
 
 " Airline config
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
 " indent guide options
 let indent_guides_auto_colors = 0
 let g:indent_guides_enable_on_vim_startup = 1
@@ -359,9 +380,24 @@ let g:neocomplcache_enable_underbar_completion = 1
 " Sets minimum char length of syntax keyword.
 let g:neocomplcache_min_syntax_length = 3
 " zen coding option
-let g:user_emmet_expandabbr_key='<C-Y>'
+let g:user_emmet_mode='i'
+let g:user_emmet_expandabbr_key='jk'
+let g:user_emmet_install_global = 1
+
+let g:jsx_ext_required = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_python_checkers = ['pylint']
+let g:pyindent_open_paren = '&sw'
+let g:pyindent_nested_paren = '&sw'
+let g:pyindent_continue = '&sw'
+
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|__pycache__)|(\.(swp|ico|git|svn|.pyc))$'
+
+map <space>n <Plug>(easymotion-prefix)
 " }}}
 " Onload {{{
+" Disable gvim bell
+autocmd! GUIEnter * set vb t_vb=
 autocmd VimEnter * :set visualbell!
 autocmd VimEnter * :IndentGuidesEnable
 " dont know why this is broken
@@ -370,7 +406,13 @@ autocmd VimEnter * :IndentGuidesEnable
 au BufEnter * inoremap <expr><s-TAB> pumvisible() ? "\<C-n>" : "<s-TAB>"
 highlight NonText ctermfg=blue
 au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.wjs set filetype=javascript
+au BufNewFile,BufRead *.py  set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 expandtab
 au FocusLost * :silent! wall
+
+"autocmd FileType javascript set formatprg=prettier\ --stdin\ --trailing-comma\ all
+"autocmd BufWritePre *.js :normal gggqG
+"autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
 
 function! NumberToggle()
   if(&relativenumber == 1)
