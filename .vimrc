@@ -43,6 +43,11 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'gcmt/wildfire.vim'
+" It runs without using the flowconfig
+"NeoBundle 'flowtype/vim-flow' , {
+            "\ 'autoload': {
+            "\     'filetypes': 'javascript'
+            "\ }}
 
 " Testing out
 NeoBundle 'hail2u/vim-css3-syntax'
@@ -92,7 +97,6 @@ set cursorline " Highlight current line
 set diffopt=filler " Add vertical spaces to keep right and left aligned
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set encoding=utf-8 nobomb " BOM often causes trouble
-set esckeys " Allow cursor keys in insert mode.
 set nofoldenable    " disable folding"
 set formatoptions=
 set formatoptions+=c " Format comments
@@ -133,7 +137,6 @@ set splitright " New windows goes right
 set suffixes=.bak,~,.swp,.swo,.o,.d,.info,.aux,.log,.dvi,.pdf,.bin,.bbl,.blg,.brf,.cb,.dmg,.exe,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.pyd,.dll
 set title " Show the filename in the window titlebar.
 set ttyfast " Send more characters at a given time.
-set ttymouse=xterm " Set mouse type to xterm.
 set undofile " Persistent Undo.
 set lazyredraw " Prevent scroll lag
 set visualbell " Use visual bell instead of audible bell (annnnnoying)
@@ -410,7 +413,7 @@ au BufNewFile,BufRead *.wjs set filetype=javascript
 au BufNewFile,BufRead *.py  set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 expandtab
 au FocusLost * :silent! wall
 
-"autocmd FileType javascript set formatprg=prettier\ --stdin\ --trailing-comma\ all
+"autocmd FileType javascript set formatprg=prettier\ --stdin\ all
 "autocmd BufWritePre *.js :normal gggqG
 "autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
 
